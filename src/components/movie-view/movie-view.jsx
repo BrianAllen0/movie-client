@@ -1,4 +1,5 @@
 export const MovieView = ({movie, onBackButton}) => {
+    return (
     <div>
         <div>
             <img src = {movie.image}></img>
@@ -7,10 +8,17 @@ export const MovieView = ({movie, onBackButton}) => {
             <p>Title: {movie.title}</p>
         </div>
         <div>
-            <p>Director: {movie.Director}</p>
+            <p>Description: {movie.description}</p>
+        </div>
+        <div>
+            <p>Genre: {movie.genre}</p>
+        </div>
+        <div>
+            <p>Director: {movie.director}</p>
         </div>
         <div>
             <button onClick={onBackButton}>Back</button>
         </div>
     </div>
+    );
 };
