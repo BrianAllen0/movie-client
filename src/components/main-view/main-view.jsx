@@ -9,6 +9,7 @@ export const MainView = () => {
         {id: 2, title: "Test Movie 2", description: "description 2", director: "Director 2", image: "testimage2.png"},
         {id: 3, title: "Test Movie 3", description: "description 3", director: "Director 3", image: "testimage3.png"}
     ]);
+    console.log(selectedMovie);
     if(movies.length === 0) {
         return <div>The List is Empty!</div>;
     }
@@ -19,7 +20,7 @@ export const MainView = () => {
         <div>
             {movies.map((movie)=> {
                 return(<MovieListing key={movie.id} movie={movie} onMovieClick={(newSelectedMovie)=>{setSelectedMovie(newSelectedMovie)}}/>);
-            })};
+            })}
         </div>
     );
 };

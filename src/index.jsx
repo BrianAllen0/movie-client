@@ -1,11 +1,11 @@
 import {createRoot} from "react-dom/client";
-import { MovieView } from "./components/movie-view/movie-view";
+import { MainView } from "./components/main-view/main-view";
 import "./index.scss";
 
 const MyFlixApplication = () => {
     return (
         <div className="my-flix">
-            <MovieView/>
+            <MainView/>
         </div>
     );
 }
