@@ -2930,7 +2930,9 @@ var _indexScss = require("./index.scss");
 const MyFlixApplication = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "my-flix",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(MovieView, {}, void 0, false, {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            children: "Good morning"
+        }, void 0, false, {
             fileName: "src/index.jsx",
             lineNumber: 7,
             columnNumber: 13
@@ -27277,4 +27279,4 @@ function registerExportsForReactRefresh(module1) {
 
 },{"b7e989973f2ef206":"8DmgE"}]},["jIzUE","5rd5q","d8Dch"], "d8Dch", "parcelRequire315a")
 
-//# sourceMappingURL=index.b4b6dfad.js.map
+//# sourceMappingURL=index.js.map

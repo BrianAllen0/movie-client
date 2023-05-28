@@ -4,7 +4,7 @@ import "./index.scss";
 const MyFlixApplication = () => {
     return (
         <div className="my-flix">
-            <div>Good morning</div>
+            <MovieView/>
         </div>
     );
 }

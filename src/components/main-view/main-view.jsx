@@ -12,7 +12,7 @@ export const MainView = () => {
         return <div>The List is Empty!</div>;
     }
     if(selectedMovie) {
-        return (<MovieView/>)
+        return (<MovieView movie={selectedMovie} onBackButton={()=>{setSelectedMovie(null)}}/>)
     }
     return (
         <div>
