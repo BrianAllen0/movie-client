@@ -10,7 +10,7 @@ export const MainView = () => {
             console.log('RESPONSEDATA: ' + json);
             const movieFetchData = json.map((doc)=>{
                 return {
-                    id: doc.key,
+                    id: doc._id,
                     title: doc.Title,
                     description: doc.Description,
                     genre: doc.Genre.Name,
