@@ -1,15 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MovieListing } from "../movie-listing/movie-listing";
 import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
     const [selectedMovie, setSelectedMovie] = useState(null);
-    const [movies, setMovies] = useState([
-        {id: 1, title: "Test Movie 1", description: "description 1", director: "Director 1", image: "testimage1.png"},
-        {id: 2, title: "Test Movie 2", description: "description 2", director: "Director 2", image: "testimage2.png"},
-        {id: 3, title: "Test Movie 3", description: "description 3", director: "Director 3", image: "testimage3.png"}
-    ]);
-    console.log(selectedMovie);
+    const [movies, setMovies] = useState([]);
+    useEffect(()=> {
+        fetch('https://ba-movie-api.herokuapp.com/movies').then((response)=>response.json()).then((json)=>{
+            console.log('RESPONSEDATA: ' + json);
+            const movieFetchData = json.map((doc)=>{
+                return {
+                    id: doc.key,
+                    title: doc.Title,
+                    description: doc.Description,
+                    genre: doc.Genre.Name,
+                    director: doc.Director.Name,
+                    image: doc.ImagePath,
+                    featured: doc.Featured
+                };
+            });
+            setMovies(movieFetchData);
+        });
+    }, []);
     if(movies.length === 0) {
         return <div>The List is Empty!</div>;
     }

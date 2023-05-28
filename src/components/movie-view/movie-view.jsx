@@ -8,6 +8,12 @@ export const MovieView = ({movie, onBackButton}) => {
             <p>Title: {movie.title}</p>
         </div>
         <div>
+            <p>Description: {movie.description}</p>
+        </div>
+        <div>
+            <p>Genre: {movie.genre}</p>
+        </div>
+        <div>
             <p>Director: {movie.director}</p>
         </div>
         <div>
