@@ -1,4 +1,5 @@
 import {createRoot} from "react-dom/client";
+import { MovieView } from "./components/movie-view/movie-view";
 import "./index.scss";
 
 const MyFlixApplication = () => {

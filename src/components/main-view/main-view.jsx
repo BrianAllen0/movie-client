@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MovieListing } from "../movie-listing/movie-listing";
+import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
     const [selectedMovie, setSelectedMovie] = useState(null);
@@ -17,7 +18,7 @@ export const MainView = () => {
     return (
         <div>
             {movies.map((movie)=> {
-                return(<MovieListing movie={movie} key={movie.id} onMovieClick={(newSelectedMovie)=>{setSelectedMovie(newSelectedMovie)}}/>);
+                return(<MovieListing key={movie.id} movie={movie} onMovieClick={(newSelectedMovie)=>{setSelectedMovie(newSelectedMovie)}}/>);
             })};
         </div>
     );
