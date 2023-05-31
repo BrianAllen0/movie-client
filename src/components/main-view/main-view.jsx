@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { MovieListing } from "../movie-listing/movie-listing";
 import { MovieView } from "../movie-view/movie-view";
+import { LoginView } from "../login-view/login-view";
 
 export const MainView = () => {
     const [selectedMovie, setSelectedMovie] = useState(null);
+    const [user, setUser] = useState(null);
     const [movies, setMovies] = useState([]);
     useEffect(()=> {
         fetch('https://ba-movie-api.herokuapp.com/movies').then((response)=>response.json()).then((json)=>{
@@ -22,6 +24,9 @@ export const MainView = () => {
             setMovies(movieFetchData);
         });
     }, []);
+    if(!user) {
+        return <LoginView/>
+    }
     if(movies.length === 0) {
         return <div>The List is Empty!</div>;
     }
