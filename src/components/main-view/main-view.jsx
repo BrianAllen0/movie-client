@@ -25,7 +25,7 @@ export const MainView = () => {
         });
     }, []);
     if(!user) {
-        return <LoginView/>
+        return <LoginView onLoggedIn={(user)=>setUser(user)}/>
     }
     if(movies.length === 0) {
         return <div>The List is Empty!</div>;
@@ -38,6 +38,7 @@ export const MainView = () => {
             {movies.map((movie)=> {
                 return(<MovieListing key={movie.id} movie={movie} onMovieClick={(newSelectedMovie)=>{setSelectedMovie(newSelectedMovie)}}/>);
             })}
+            <button onClick={() => { setUser(null); }}>Logout</button>
         </div>
     );
 };
