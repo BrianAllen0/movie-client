@@ -4,13 +4,14 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 
 export const MainView = () => {
-    const [selectedMovie, setSelectedMovie] = useState(null);
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedToken = localStorage.getItem("token");
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(null);
     const [movies, setMovies] = useState([]);
+    const [selectedMovie, setSelectedMovie] = useState(null);
     useEffect(()=> {
         fetch("https://ba-movie-api.herokuapp.com/movies",{headers: {Authorization: `Bearer ${token}`}}).then((response)=>response.json()).then((json)=>{
-            console.log('RESPONSEDATA: ' + json);
             const movieFetchData = json.map((doc)=>{
                 return {
                     id: doc._id,
@@ -26,9 +27,13 @@ export const MainView = () => {
         });
     }, []);
     if(!user) {
-        return <LoginView onLoggedIn={(data)=>{
-            setUser(data.user)
-            setToken(data.token)
+        return <LoginView onLoggedIn={(user, token)=>{
+            console.log("USER")
+            console.log(user)
+            console.log("TOKEN")
+            console.log(token)
+            setUser(user)
+            setToken(token)
         }}/>
     }
     if(movies.length === 0) {

@@ -12,6 +12,8 @@ export const LoginView = ({onLoggedIn}) => {
         {method: "POST", headers: {"Content-Type": "application/json"}}).then((response)=>response.json()).then((data)=>{
             console.log(data);
             if(data.user) {
+                localStorage.setItem("user", JSON.stringify(data.user));
+                localStorage.setItem("token", JSON.stringify(data.token));
                 onLoggedIn(data.user, data.token);
             } else {
                 alert("No such user!");
