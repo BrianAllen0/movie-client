@@ -8,10 +8,17 @@ export const LoginView = ({onLoggedIn}) => {
             access: username,
             secret: password
         };
-        fetch(`https://ba-movie-api.herokuapp.com/user/login?Username=${data.username}&Password=${data.password}`, 
+        fetch(`https://ba-movie-api.herokuapp.com/user/login?Username=${data.access}&Password=${data.secret}`,
         {method: "POST", headers: {"Content-Type": "application/json"}}).then((response)=>{response.json()}).then((data)=>{
-            
-        })
+            console.log("Login Response: " + data);
+            if(data.user) {
+                onLoggedIn(data.user, data.token);
+            } else {
+                alert("No such user!");
+            }
+        }).catch((e)=>{
+            alert("Something went wrong!");
+        });
     };
     return(
         <form onSubmit={handleSubmit}>
