@@ -27303,7 +27303,7 @@ const MovieListing = ({ movie , onMovieClick  })=>{
     }, undefined);
 };
 _c = MovieListing;
-MovieListing.PropTypes = {
+MovieListing.propTypes = {
     movie: (0, _propTypesDefault.default).shape({
         title: (0, _propTypesDefault.default).string,
         description: (0, _propTypesDefault.default).string,
