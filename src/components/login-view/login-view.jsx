@@ -9,8 +9,8 @@ export const LoginView = ({onLoggedIn}) => {
             secret: password
         };
         fetch(`https://ba-movie-api.herokuapp.com/user/login?Username=${data.access}&Password=${data.secret}`,
-        {method: "POST", headers: {"Content-Type": "application/json"}}).then((response)=>{response.json()}).then((data)=>{
-            console.log("Login Response: " + data);
+        {method: "POST", headers: {"Content-Type": "application/json"}}).then((response)=>response.json()).then((data)=>{
+            console.log(data);
             if(data.user) {
                 onLoggedIn(data.user, data.token);
             } else {
