@@ -1,15 +1,15 @@
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 export const MovieListing = ({movie, onMovieClick}) => {
     return (<div onClick={()=>{onMovieClick(movie);}}>{movie.title}</div>)
 };
 
-MovieListing.PropTypes = {
-    movie: PropTypes.shape({
-        title: PropTypes.string,
-        description: PropTypes.string,
-        genre: PropTypes.string,
-        director: PropTypes.string
+MovieListing.propTypes = {
+    movie: propTypes.shape({
+        title: propTypes.string,
+        description: propTypes.string,
+        genre: propTypes.string,
+        director: propTypes.string
     }).isRequired,
-    onMovieClick: PropTypes.func.isRequired
+    onMovieClick: propTypes.func.isRequired
 };
