@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { MovieListing } from "../movie-listing/movie-listing";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
+import { RegisterView } from "../register-view/registerview";
 
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
     const [user, setUser] = useState(storedUser? storedUser: null);
+    const [registering, setRegistering] = useState(null);
     const [token, setToken] = useState(storedToken? storedToken: null);
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
@@ -27,14 +29,22 @@ export const MainView = () => {
         });
     }, []);
     if(!user) {
-        return <LoginView onLoggedIn={(user, token)=>{
+        if(registering) {
+            return <RegisterView
+            onClickLogin={()=>setRegistering(null)}
+            />
+        }
+        return <LoginView 
+        onLoggedIn={(user, token)=>{
             console.log("USER")
             console.log(user)
             console.log("TOKEN")
             console.log(token)
             setUser(user)
             setToken(token)
-        }}/>
+        }}
+        onClickRegister={()=>setRegistering(1)}
+        />
     }
     if(movies.length === 0) {
         return <div>The List is Empty!</div>;

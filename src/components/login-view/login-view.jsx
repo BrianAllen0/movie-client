@@ -1,5 +1,5 @@
 import { useState } from "react";
-export const LoginView = ({onLoggedIn}) => {
+export const LoginView = ({onLoggedIn, onClickRegister}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const handleSubmit = (event) => {
@@ -22,27 +22,34 @@ export const LoginView = ({onLoggedIn}) => {
             alert("Something went wrong!");
         });
     };
+    const changeToRegister = () =>{
+        onClickRegister();
+    };
     return(
-        <form onSubmit={handleSubmit}>
-            <label>
-                Username: <input 
-                type="text"
-                value={username}
-                onChange={(e)=>setUsername(e.target.value)}
-                required
-                />
-            </label>
+        <div>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Username: <input 
+                    type="text"
+                    value={username}
+                    onChange={(e)=>setUsername(e.target.value)}
+                    required
+                    />
+                </label>
+                <br/>
+                <label>
+                    Password: <input 
+                    type="password"
+                    value={password}
+                    onChange={(e)=>setPassword(e.target.value)}
+                    required
+                    />
+                </label>
+                <br/>
+                <button type="submit">Submit</button>
+            </form>
             <br/>
-            <label>
-                Password: <input 
-                type="password"
-                value={password}
-                onChange={(e)=>setPassword(e.target.value)}
-                required
-                />
-            </label>
-            <br/>
-            <button type="submit">Submit</button>
-        </form>
+            <button onClick={changeToRegister}>Register Instead</button>
+        </div>
     );
 }

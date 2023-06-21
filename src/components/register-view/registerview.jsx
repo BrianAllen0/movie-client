@@ -1,4 +1,5 @@
-export const RegisterView = () => {
+import { useState } from "react";
+export const RegisterView = ({onClickLogin}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [birthday, setBirthday] = useState("");
@@ -13,7 +14,9 @@ export const RegisterView = () => {
             Birthday: birthday
         }
         fetch("https://ba-movie-api.herokuapp.com/user/register",{
-        Method: "POST", body: JSON.stringify(data), headers: {"Content-Type": "application/json"}}).then((response)=>{
+        Method: "POST", 
+        body: JSON.stringify(data), 
+        headers: {"Content-Type": "application/json"}}).then((response)=>{
             if(response.ok) {
                 alert("Registered successfully!");
                 window.location.reload();
@@ -22,6 +25,10 @@ export const RegisterView = () => {
             }
         });
     };
+    const changeToLogin = () =>{
+        onClickLogin();
+    }
+
     return(
         <form onSubmit={handleSubmit}>
             <label>
@@ -60,6 +67,9 @@ export const RegisterView = () => {
                 />
             </label>
             <br/>
+            <button type="submit">Submit</button>
+            <br/>
+            <button onClick={changeToLogin}>Login Instead</button>
         </form>
     );
 }
