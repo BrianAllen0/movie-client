@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Row } from "react-bootstrap";
 import { MovieListing } from "../movie-listing/movie-listing";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
@@ -28,36 +29,65 @@ export const MainView = () => {
             setMovies(movieFetchData);
         });
     }, []);
-    if(!user) {
-        if(registering) {
-            return <RegisterView
-            onClickLogin={()=>setRegistering(null)}
-            />
-        }
-        return <LoginView 
-        onLoggedIn={(user, token)=>{
-            console.log("USER")
-            console.log(user)
-            console.log("TOKEN")
-            console.log(token)
-            setUser(user)
-            setToken(token)
-        }}
-        onClickRegister={()=>setRegistering(1)}
-        />
-    }
-    if(movies.length === 0) {
-        return <div>The List is Empty!</div>;
-    }
-    if(selectedMovie) {
-        return (<MovieView movie={selectedMovie} onBackButton={()=>{setSelectedMovie(null)}}/>)
-    }
-    return (
-        <div>
-            {movies.map((movie)=> {
-                return(<MovieListing key={movie.id} movie={movie} onMovieClick={(newSelectedMovie)=>{setSelectedMovie(newSelectedMovie)}}/>);
-            })}
-            <button onClick={() => {setUser(null);setToken(null);localStorage.clear()}}>Logout</button>
-        </div>
-    );
+
+    return(
+        <Row>
+            {!user ? (!registering ? 
+                (<LoginView 
+                onLoggedIn={(user, token)=>{
+                setUser(user)
+                setToken(token)
+                }}
+                onClickRegister={()=>setRegistering(1)}
+                />) : 
+                (<RegisterView 
+                onClickLogin={()=>setRegistering(null)}
+                />)
+                ) : 
+                (movies.length === 0 ? (<div>The List is Empty!</div>) : 
+                (!selectedMovie ? 
+                    (<Row>
+                        {movies.map((movie)=> {
+                            return(<MovieListing key={movie.id} movie={movie} onMovieClick={(newSelectedMovie)=>{setSelectedMovie(newSelectedMovie)}}/>);
+                        })}
+                        <button onClick={() => {setUser(null);setToken(null);localStorage.clear()}}>Logout</button>
+                    </Row>) : 
+                    (<MovieView movie={selectedMovie} onBackButton={()=>{setSelectedMovie(null)}}/>)
+                ))
+            }
+        </Row>
+    )
+
+    // if(!user) {
+    //     if(registering) {
+    //         return <RegisterView
+    //         onClickLogin={()=>setRegistering(null)}
+    //         />
+    //     }
+    //     return <LoginView 
+    //     onLoggedIn={(user, token)=>{
+    //         console.log("USER")
+    //         console.log(user)
+    //         console.log("TOKEN")
+    //         console.log(token)
+    //         setUser(user)
+    //         setToken(token)
+    //     }}
+    //     onClickRegister={()=>setRegistering(1)}
+    //     />
+    // }
+    // if(movies.length === 0) {
+    //     return <div>The List is Empty!</div>;
+    // }
+    // if(selectedMovie) {
+    //     return (<MovieView movie={selectedMovie} onBackButton={()=>{setSelectedMovie(null)}}/>)
+    // }
+    // return (
+    //     <Row>
+    //         {movies.map((movie)=> {
+    //             return(<MovieListing key={movie.id} movie={movie} onMovieClick={(newSelectedMovie)=>{setSelectedMovie(newSelectedMovie)}}/>);
+    //         })}
+    //         <button onClick={() => {setUser(null);setToken(null);localStorage.clear()}}>Logout</button>
+    //     </Row>
+    // );
 };
