@@ -1,10 +1,10 @@
-import { Button } from "react-bootstrap";
+import { Button, Col } from "react-bootstrap";
 
 export const MovieView = ({movie, onBackButton}) => {
     return (
-    <div>
+    <Col md={6}>
         <div>
-            <img src = {movie.image}></img>
+            <img className="w-100" src={movie.image}></img>
         </div>
         <div>
             <p>Title: {movie.title}</p>
@@ -21,6 +21,6 @@ export const MovieView = ({movie, onBackButton}) => {
         <div>
             <Button onClick={onBackButton}>Back</Button>
         </div>
-    </div>
+    </Col>
     );
 };

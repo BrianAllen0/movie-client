@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Row } from "react-bootstrap";
+import { Row, Button, Col } from "react-bootstrap";
 import { MovieListing } from "../movie-listing/movie-listing";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
@@ -31,7 +31,7 @@ export const MainView = () => {
     }, []);
 
     return(
-        <Row>
+        <Row className="justify-content-md-center">
             {!user ? (!registering ? 
                 (<LoginView 
                 onLoggedIn={(user, token)=>{
@@ -48,9 +48,13 @@ export const MainView = () => {
                 (!selectedMovie ? 
                     (<Row>
                         {movies.map((movie)=> {
-                            return(<MovieListing key={movie.id} movie={movie} onMovieClick={(newSelectedMovie)=>{setSelectedMovie(newSelectedMovie)}}/>);
+                            return(
+                                <Col md={3} key={movie.id} className="mb-5">
+                                    <MovieListing key={movie.id} movie={movie} onMovieClick={(newSelectedMovie)=>{setSelectedMovie(newSelectedMovie)}}/>
+                                </Col>
+                            );
                         })}
-                        <button onClick={() => {setUser(null);setToken(null);localStorage.clear()}}>Logout</button>
+                        <Button onClick={() => {setUser(null);setToken(null);localStorage.clear()}}>Logout</Button>
                     </Row>) : 
                     (<MovieView movie={selectedMovie} onBackButton={()=>{setSelectedMovie(null)}}/>)
                 ))
