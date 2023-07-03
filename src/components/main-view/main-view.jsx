@@ -3,7 +3,7 @@ import { Row } from "react-bootstrap";
 import { MovieListing } from "../movie-listing/movie-listing";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
-import { RegisterView } from "../register-view/registerview";
+import { RegisterView } from "../register-view/register-view";
 
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
