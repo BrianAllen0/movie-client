@@ -1,6 +1,5 @@
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import { Form, Button } from "react-bootstrap";
 
 export const LoginView = ({onLoggedIn, onClickRegister}) => {
     const [username, setUsername] = useState("");
@@ -40,7 +39,7 @@ export const LoginView = ({onLoggedIn, onClickRegister}) => {
                 />
             </Form.Group>
             <Form.Group controlId="formPassword">
-                <Form.Label>Username:</Form.Label>
+                <Form.Label>Password:</Form.Label>
                 <Form.Control
                     type="password"
                     value={password}
@@ -48,7 +47,9 @@ export const LoginView = ({onLoggedIn, onClickRegister}) => {
                     required
                 />
             </Form.Group>
-            <Button type="submit">Submit</Button>
+            <Button type="submit">Login</Button>
+            <p>Or</p>
+            <Button onClick={changeToRegister}>Register</Button>
         </Form>
     );
 }
