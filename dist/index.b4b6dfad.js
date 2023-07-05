@@ -40743,25 +40743,18 @@ const MovieListing = ({ movie, onMovieClick })=>{
                             lineNumber: 12,
                             columnNumber: 17
                         }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
-                            children: movie.description
-                        }, void 0, false, {
-                            fileName: "src/components/movie-listing/movie-listing.jsx",
-                            lineNumber: 13,
-                            columnNumber: 17
-                        }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                             to: `/movies/${encodeURIComponent(movie.title)}`,
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                                 children: "See More"
                             }, void 0, false, {
                                 fileName: "src/components/movie-listing/movie-listing.jsx",
-                                lineNumber: 15,
+                                lineNumber: 14,
                                 columnNumber: 21
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/movie-listing/movie-listing.jsx",
-                            lineNumber: 14,
+                            lineNumber: 13,
                             columnNumber: 17
                         }, undefined)
                     ]
