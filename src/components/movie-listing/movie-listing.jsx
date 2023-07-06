@@ -6,7 +6,7 @@ export const MovieListing = ({movie, onMovieClick}) => {
     return (
     //<div onClick={()=>{onMovieClick(movie);}}>{movie.title}</div>
     <Col md={3} key={movie.id} className="mb-5">
-        <Card className='h-100'>
+        <Card className='h-100 movie-card'>
             <Card.Img variant="top" src={movie.image}></Card.Img>
             <Card.Body>
                 <Card.Title>{movie.title}</Card.Title>

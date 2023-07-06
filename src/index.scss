@@ -1,7 +1,20 @@
 $primary: Indigo;
 @import '~bootstrap/scss/bootstrap.scss';
 $color: white;
+$page-background: rgb(59, 57, 65);
+$card-background: darken($page-background, 10%);
+
+* {
+    border: 1px red solid;
+    font-family: 'Inter', sans-serif;
+}
 
 .my-flix {
     color: $color;
+    background-color: $page-background;
+}
+
+.movie-card {
+    color: $color;
+    background-color: $card-background;
 }

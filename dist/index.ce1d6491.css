@@ -13186,8 +13186,19 @@ textarea.form-control-lg {
   }
 }
 
+* {
+  border: 1px solid red;
+  font-family: Inter, sans-serif;
+}
+
 .my-flix {
   color: #fff;
+  background-color: #3b3941;
+}
+
+.movie-card {
+  color: #fff;
+  background-color: #222126;
 }
 
 /*# sourceMappingURL=index.ce1d6491.css.map */

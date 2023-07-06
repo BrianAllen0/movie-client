@@ -4,6 +4,7 @@ import { MovieListing } from "../movie-listing/movie-listing";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { RegisterView } from "../register-view/register-view";
+import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 export const MainView = () => {
@@ -33,7 +34,10 @@ export const MainView = () => {
 
     return(
         <BrowserRouter>
-            <Row className="justify-content-md-center">
+            <Row>
+                <NavigationBar/>
+            </Row>
+            <Row className="justify-content-md-center ">
                 <Routes>
                     <Route
                     path="/register"
@@ -77,7 +81,7 @@ export const MainView = () => {
                                     {movies.map((movie)=> {
                                         return(<MovieListing key={movie.id} movie={movie} onMovieClick={(newSelectedMovie)=>{setSelectedMovie(newSelectedMovie)}}/>);
                                     })}
-                                    <Button md={3} className="justify-content-md-center" onClick={() => {setUser(null);setToken(null);localStorage.clear()}}>Logout</Button>
+                                    {/* <Button className="justify-content-md-center" onClick={() => {setUser(null);setToken(null);localStorage.clear()}}>Logout</Button> */}
                                 </Row>
                             )}
                         </div>
