@@ -37,7 +37,7 @@ export const MainView = () => {
             <Row>
                 <NavigationBar/>
             </Row>
-            <Row className="justify-content-md-center ">
+            <Row className="justify-content-md-center">
                 <Routes>
                     <Route
                     path="/register"
@@ -77,7 +77,7 @@ export const MainView = () => {
                             {movies.length === 0 ? (
                                 <div>The List is Empty!</div>
                             ) : (
-                                <Row>
+                                <Row className="mt-5rem">
                                     {movies.map((movie)=> {
                                         return(<MovieListing key={movie.id} movie={movie} onMovieClick={(newSelectedMovie)=>{setSelectedMovie(newSelectedMovie)}}/>);
                                     })}
@@ -94,7 +94,9 @@ export const MainView = () => {
                             {!user ? (
                                 <Navigate to="/login"/>
                             ) : (
-                                <MovieView movies={movies}/>
+                                <Row className="justify-content-md-center mb-1rem mt-5rem">
+                                    <MovieView movies={movies}/>
+                                </Row>
                             )}
                         </div>
                     }

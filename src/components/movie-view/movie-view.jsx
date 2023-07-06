@@ -4,25 +4,23 @@ import { Link } from "react-router-dom";
 
 export const MovieView = ({movies, onBackButton}) => {
     const { movieTitle } = useParams();
-    console.log(movieTitle)
-    //console.log(movies.find((m)=> m.title === movieTitle));
-    const amovie = movies.find((m)=> m.title === movieTitle);
+    const currentMovie = movies.find((m)=> m.title === movieTitle);
     return (
-    <Col md={6}>
+    <Col md={6} className="font-white movie-view">
         <div>
-            <img className="w-100" src={amovie.image}></img>
+            <img className="w-100" src={currentMovie.image}></img>
         </div>
         <div>
-            <p>Title: {amovie.title}</p>
+            <p>Title: {currentMovie.title}</p>
         </div>
         <div>
-            <p>Description: {amovie.description}</p>
+            <p>Description: {currentMovie.description}</p>
         </div>
         <div>
-            <p>Genre: {amovie.genre}</p>
+            <p>Genre: {currentMovie.genre}</p>
         </div>
         <div>
-            <p>Director: {amovie.director}</p>
+            <p>Director: {currentMovie.director}</p>
         </div>
         <Link to="/">
             <Button onClick={onBackButton}>Back</Button>

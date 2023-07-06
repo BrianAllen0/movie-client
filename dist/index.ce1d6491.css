@@ -13187,17 +13187,57 @@ textarea.form-control-lg {
 }
 
 * {
-  border: 1px solid red;
+  color: #fff;
   font-family: Inter, sans-serif;
 }
 
-.my-flix {
+.font-white {
   color: #fff;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  background-color: #3b3941;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.background {
+  background-color: #3b3941;
+  height: 100%;
+}
+
+.my-flix {
   background-color: #3b3941;
 }
 
+.myflix-navbar {
+  background-color: #2e004f;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.mt-5rem {
+  margin-top: 5rem;
+}
+
+.mb-1rem {
+  margin-bottom: 1rem;
+}
+
+.movie-view {
+  background-color: #222126;
+  border-radius: .5rem;
+  padding: 1rem;
+}
+
 .movie-card {
-  color: #fff;
   background-color: #222126;
 }
 
