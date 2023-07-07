@@ -28,7 +28,7 @@ export const LoginView = ({onLoggedIn, onClickRegister}) => {
         onClickRegister();
     };
     return(
-        <Col md={3}>
+        <Col md={3} className="mt-5rem">
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formUsername">
                     <Form.Label>Username:</Form.Label>

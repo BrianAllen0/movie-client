@@ -35,7 +35,10 @@ export const MainView = () => {
     return(
         <BrowserRouter>
             <Row>
-                <NavigationBar/>
+                <NavigationBar
+                setUser={setUser}
+                setToken={setToken}
+                />
             </Row>
             <Row className="justify-content-md-center">
                 <Routes>
@@ -44,7 +47,7 @@ export const MainView = () => {
                     element={
                         <div>
                             {registering ? (
-                            <RegisterView 
+                            <RegisterView
                             onClickLogin={()=>setRegistering(null)}
                             />) : (
                                 <Navigate to="/login"/>
@@ -56,7 +59,9 @@ export const MainView = () => {
                     path="/login"
                     element={
                         <div>
-                            {!registering ? (
+                            { user ? (
+                                <Navigate to="/"/>
+                            ) : !registering ? (
                                 <LoginView 
                                 onLoggedIn={(user, token)=>{
                                 setUser(user)
@@ -76,6 +81,8 @@ export const MainView = () => {
                         <div>
                             {movies.length === 0 ? (
                                 <div>The List is Empty!</div>
+                            ) : !user ? (
+                                <Navigate to="/login"/>
                             ) : (
                                 <Row className="mt-5rem">
                                     {movies.map((movie)=> {

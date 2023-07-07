@@ -32,7 +32,7 @@ export const RegisterView = ({onClickLogin}) => {
     }
 
     return(
-        <Col md={3}>
+        <Col md={3} className="mt-5rem">
             <Form>
                 <Form.Group>
                     <Form.Label>Username:</Form.Label>
