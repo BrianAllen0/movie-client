@@ -33,7 +33,7 @@ export const RegisterView = ({onClickLogin}) => {
 
     return(
         <Col md={3} className="mt-5rem">
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Label>Username:</Form.Label>
                     <Form.Control
@@ -69,9 +69,11 @@ export const RegisterView = ({onClickLogin}) => {
                         required
                     />
                 </Form.Group>
-                <Button type="submit">Register</Button>
-                <p>Or</p>
-                <Button onClick={changeToLogin}>Login</Button>
+                <Form.Group inline className="mt-1rem">
+                    <Button className="" type="submit">Register</Button>
+                    <span> OR: </span>
+                    <Button className="" onClick={changeToLogin}>Login</Button>
+                </Form.Group>
             </Form>
         </Col>
     );

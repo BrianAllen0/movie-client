@@ -48,9 +48,11 @@ export const LoginView = ({onLoggedIn, onClickRegister}) => {
                         required
                     />
                 </Form.Group>
-                <Button type="submit">Login</Button>
-                <p>Or</p>
-                <Button onClick={changeToRegister}>Register</Button>
+                <Form.Group inline className="mt-1rem">
+                    <Button type="submit">Login</Button>
+                    <span> OR: </span>
+                    <Button onClick={changeToRegister}>Register</Button>
+                </Form.Group>
             </Form>
         </Col>
     );

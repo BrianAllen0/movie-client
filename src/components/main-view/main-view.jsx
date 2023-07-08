@@ -5,6 +5,8 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { RegisterView } from "../register-view/register-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
+import { ProfileView } from "../profile-view/profile-view";
+import { ProfileUpdateView } from "../profile-view/profile-update-view";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 export const MainView = () => {
@@ -95,6 +97,30 @@ export const MainView = () => {
                     }
                     />
                     <Route
+                    path="/profile"
+                    element={
+                        <div>
+                            {!user ? (
+                                <Navigate to="/login"/>
+                            ) : (
+                                <ProfileView user={user}/>
+                            )}
+                        </div>
+                    }
+                    />
+                    <Route
+                    path="/profile/update"
+                    element={
+                        <div>
+                            {!user ? (
+                                <Navigate to="/login"/>
+                            ) : (
+                                <ProfileUpdateView user={user}/>
+                            )}
+                        </div>
+                    }
+                    />
+                    <Route
                     path="/movies/:movieTitle"
                     element={
                         <div>
@@ -109,35 +135,6 @@ export const MainView = () => {
                     }
                     />
                 </Routes>
-                
-                
-                {/* {!user ? (!registering ? 
-                    (<LoginView 
-                    onLoggedIn={(user, token)=>{
-                    setUser(user)
-                    setToken(token)
-                    }}
-                    onClickRegister={()=>setRegistering(1)}
-                    />) : 
-                    (<RegisterView 
-                    onClickLogin={()=>setRegistering(null)}
-                    />)
-                    ) : 
-                    (movies.length === 0 ? (<div>The List is Empty!</div>) : 
-                    (!selectedMovie ? 
-                        (<Row>
-                            {movies.map((movie)=> {
-                                return(
-                                    <Col md={3} key={movie.id} className="mb-5">
-                                        <MovieListing key={movie.id} movie={movie} onMovieClick={(newSelectedMovie)=>{setSelectedMovie(newSelectedMovie)}}/>
-                                    </Col>
-                                );
-                            })}
-                            <Button onClick={() => {setUser(null);setToken(null);localStorage.clear()}}>Logout</Button>
-                        </Row>) : 
-                        (<MovieView movie={selectedMovie} onBackButton={()=>{setSelectedMovie(null)}}/>)
-                    ))
-                } */}
             </Row>
         </BrowserRouter>
     );
