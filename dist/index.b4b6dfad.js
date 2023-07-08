@@ -40747,7 +40747,7 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","../movie-listing/movie-listing":"4nyTu","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../register-view/register-view":"6jAr6","../navigation-bar/navigation-bar":"bsPVM","../profile-view/profile-view":"2vVqf","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../profile-view/profile-update-view":"9IAJo"}],"4nyTu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","../movie-listing/movie-listing":"4nyTu","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../register-view/register-view":"6jAr6","../navigation-bar/navigation-bar":"bsPVM","../profile-view/profile-view":"2vVqf","../profile-view/profile-update-view":"9IAJo","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4nyTu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$fbdd = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -46902,7 +46902,7 @@ const LoginView = ({ onLoggedIn, onClickRegister })=>{
                 localStorage.setItem("user", JSON.stringify(data.user));
                 localStorage.setItem("token", JSON.stringify(data.token));
                 onLoggedIn(data.user, data.token);
-            } else alert("No such user!");
+            } else alert("Invalid Credentials!");
         }).catch((e)=>{
             alert("Something went wrong!");
         });
@@ -47401,141 +47401,179 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ProfileUpdateView", ()=>ProfileUpdateView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactBootstrap = require("react-bootstrap");
+var _reactRouter = require("react-router");
 var _react = require("react");
 var _s = $RefreshSig$();
 const ProfileUpdateView = ({ user })=>{
     _s();
     let oldPassword = "";
-    const [username, setUsername] = (0, _react.useState)("");
-    const [password, setPassword] = (0, _react.useState)("");
-    const [email, setEmail] = (0, _react.useState)("");
-    function updateInfo(newuser, oldpass, newpass, newemail) {}
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-        md: 3,
-        className: "mt-5rem font-white",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                            children: "New Username:"
-                        }, void 0, false, {
-                            fileName: "src/components/profile-view/profile-update-view.jsx",
-                            lineNumber: 18,
-                            columnNumber: 21
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
-                            type: "text",
-                            value: username,
-                            onChange: (e)=>setUsername(e.target.value),
-                            required: true
-                        }, void 0, false, {
-                            fileName: "src/components/profile-view/profile-update-view.jsx",
-                            lineNumber: 19,
-                            columnNumber: 21
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/profile-view/profile-update-view.jsx",
-                    lineNumber: 17,
-                    columnNumber: 17
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                            children: "Old Password:"
-                        }, void 0, false, {
-                            fileName: "src/components/profile-view/profile-update-view.jsx",
-                            lineNumber: 27,
-                            columnNumber: 21
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
-                            type: "password",
-                            value: oldPassword,
-                            onChange: (e)=>oldPassword = e.target.value,
-                            required: true
-                        }, void 0, false, {
-                            fileName: "src/components/profile-view/profile-update-view.jsx",
-                            lineNumber: 28,
-                            columnNumber: 21
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/profile-view/profile-update-view.jsx",
-                    lineNumber: 26,
-                    columnNumber: 17
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                            children: "New Password:"
-                        }, void 0, false, {
-                            fileName: "src/components/profile-view/profile-update-view.jsx",
-                            lineNumber: 36,
-                            columnNumber: 21
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
-                            type: "password",
-                            value: password,
-                            onChange: (e)=>setPassword(e.target.value),
-                            required: true
-                        }, void 0, false, {
-                            fileName: "src/components/profile-view/profile-update-view.jsx",
-                            lineNumber: 37,
-                            columnNumber: 21
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/profile-view/profile-update-view.jsx",
-                    lineNumber: 35,
-                    columnNumber: 17
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                            children: "New Email:"
-                        }, void 0, false, {
-                            fileName: "src/components/profile-view/profile-update-view.jsx",
-                            lineNumber: 45,
-                            columnNumber: 21
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
-                            type: "email",
-                            value: email,
-                            onChange: (e)=>setEmail(e.target.value),
-                            required: true
-                        }, void 0, false, {
-                            fileName: "src/components/profile-view/profile-update-view.jsx",
-                            lineNumber: 46,
-                            columnNumber: 21
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/profile-view/profile-update-view.jsx",
-                    lineNumber: 44,
-                    columnNumber: 17
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                    type: "submit",
-                    children: "Update"
-                }, void 0, false, {
-                    fileName: "src/components/profile-view/profile-update-view.jsx",
-                    lineNumber: 53,
-                    columnNumber: 17
-                }, undefined)
-            ]
-        }, void 0, true, {
+    let confirmed = false;
+    const navigate = (0, _reactRouter.useNavigate)();
+    const [newPassword, setNewPassword] = (0, _react.useState)("");
+    const [currentPassword, setCurrentPassword] = (0, _react.useState)("");
+    const [newEmail, setNewEmail] = (0, _react.useState)("");
+    const updateInfo = (event)=>{
+        event.preventDefault();
+        const data = {
+            Username: newUsername,
+            Password: newPassword,
+            Email: newEmail
+        };
+        fetch("https://ba-movie-api.herokuapp.com/user/update", {
+            Method: "PATCH",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then((response)=>{
+            if (response.ok) alert("Updated successfully!");
+            else alert("Update failed!");
+            navigate("/profile");
+        });
+    };
+    function finalize() {}
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: !confirmed ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+            md: 3,
+            className: "mt-5rem font-white",
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
+                onSubmit: finalize,
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                                children: "New Password:"
+                            }, void 0, false, {
+                                fileName: "src/components/profile-view/profile-update-view.jsx",
+                                lineNumber: 45,
+                                columnNumber: 29
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                                type: "password",
+                                value: newPassword,
+                                onChange: (e)=>setNewPassword(e.target.value)
+                            }, void 0, false, {
+                                fileName: "src/components/profile-view/profile-update-view.jsx",
+                                lineNumber: 46,
+                                columnNumber: 29
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/profile-view/profile-update-view.jsx",
+                        lineNumber: 44,
+                        columnNumber: 25
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                                children: "New Email:"
+                            }, void 0, false, {
+                                fileName: "src/components/profile-view/profile-update-view.jsx",
+                                lineNumber: 53,
+                                columnNumber: 29
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                                type: "email",
+                                value: newEmail,
+                                onChange: (e)=>setNewEmail(e.target.value)
+                            }, void 0, false, {
+                                fileName: "src/components/profile-view/profile-update-view.jsx",
+                                lineNumber: 54,
+                                columnNumber: 29
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/profile-view/profile-update-view.jsx",
+                        lineNumber: 52,
+                        columnNumber: 25
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                        inline: true,
+                        className: "mt-1rem",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                className: "",
+                                type: "submit",
+                                children: "Update"
+                            }, void 0, false, {
+                                fileName: "src/components/profile-view/profile-update-view.jsx",
+                                lineNumber: 61,
+                                columnNumber: 29
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                children: " OR: "
+                            }, void 0, false, {
+                                fileName: "src/components/profile-view/profile-update-view.jsx",
+                                lineNumber: 62,
+                                columnNumber: 29
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                href: "/profile",
+                                children: "Cancel"
+                            }, void 0, false, {
+                                fileName: "src/components/profile-view/profile-update-view.jsx",
+                                lineNumber: 63,
+                                columnNumber: 29
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/profile-view/profile-update-view.jsx",
+                        lineNumber: 60,
+                        columnNumber: 25
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/profile-view/profile-update-view.jsx",
+                lineNumber: 43,
+                columnNumber: 21
+            }, undefined)
+        }, void 0, false, {
             fileName: "src/components/profile-view/profile-update-view.jsx",
-            lineNumber: 16,
-            columnNumber: 13
+            lineNumber: 42,
+            columnNumber: 17
+        }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+            md: 3,
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
+                onSubmit: updateInfo,
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                        children: "Enter Current Password: "
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/profile-update-view.jsx",
+                        lineNumber: 70,
+                        columnNumber: 25
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                        type: "password",
+                        value: currentPassword,
+                        onChange: (e)=>setCurrentPassword(e.target.value)
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/profile-update-view.jsx",
+                        lineNumber: 71,
+                        columnNumber: 25
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/profile-view/profile-update-view.jsx",
+                lineNumber: 69,
+                columnNumber: 21
+            }, undefined)
+        }, void 0, false, {
+            fileName: "src/components/profile-view/profile-update-view.jsx",
+            lineNumber: 68,
+            columnNumber: 17
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/profile-view/profile-update-view.jsx",
-        lineNumber: 15,
+        lineNumber: 40,
         columnNumber: 9
     }, undefined);
 };
-_s(ProfileUpdateView, "15GYNQRGZwIE4f5LB0Cz/BaTZf4=");
+_s(ProfileUpdateView, "m/xTjoJ3+9+S/rr3t27bktJfwi8=", false, function() {
+    return [
+        (0, _reactRouter.useNavigate)
+    ];
+});
 _c = ProfileUpdateView;
 var _c;
 $RefreshReg$(_c, "ProfileUpdateView");
@@ -47545,6 +47583,6 @@ $RefreshReg$(_c, "ProfileUpdateView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq"}],"lJZlQ":[function() {},{}]},["4s3Ar","1xC6H","d8Dch"], "d8Dch", "parcelRequire315a")
+},{"react/jsx-dev-runtime":"iTorj","react-bootstrap":"3AD9A","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router":"dbWyW"}],"lJZlQ":[function() {},{}]},["4s3Ar","1xC6H","d8Dch"], "d8Dch", "parcelRequire315a")
 
 //# sourceMappingURL=index.b4b6dfad.js.map

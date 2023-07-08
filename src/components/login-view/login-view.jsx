@@ -18,7 +18,7 @@ export const LoginView = ({onLoggedIn, onClickRegister}) => {
                 localStorage.setItem("token", JSON.stringify(data.token));
                 onLoggedIn(data.user, data.token);
             } else {
-                alert("No such user!");
+                alert("Invalid Credentials!");
             }
         }).catch((e)=>{
             alert("Something went wrong!");
