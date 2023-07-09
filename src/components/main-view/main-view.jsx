@@ -128,7 +128,7 @@ export const MainView = () => {
                                 <Navigate to="/login"/>
                             ) : (
                                 <Row className="justify-content-md-center mb-1rem mt-5rem">
-                                    <MovieView movies={movies}/>
+                                    <MovieView user={user} movies={movies}/>
                                 </Row>
                             )}
                         </div>

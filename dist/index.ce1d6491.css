@@ -13188,6 +13188,7 @@ textarea.form-control-lg {
 
 * {
   color: #fff;
+  border: 1px solid red;
   font-family: Inter, sans-serif;
 }
 
