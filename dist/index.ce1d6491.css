@@ -13188,7 +13188,6 @@ textarea.form-control-lg {
 
 * {
   color: #fff;
-  border: 1px solid red;
   font-family: Inter, sans-serif;
 }
 
@@ -13216,6 +13215,12 @@ html, body {
 
 .my-flix {
   background-color: #3b3941;
+}
+
+.user-info {
+  background-color: #222126;
+  border-radius: 2rem;
+  margin-left: 1rem;
 }
 
 .myflix-navbar {

@@ -88,9 +88,8 @@ export const MainView = () => {
                             ) : (
                                 <Row className="mt-5rem">
                                     {movies.map((movie)=> {
-                                        return(<MovieListing key={movie.id} movie={movie} onMovieClick={(newSelectedMovie)=>{setSelectedMovie(newSelectedMovie)}}/>);
+                                        return(<MovieListing key={movie.id} movie={movie}/>);
                                     })}
-                                    {/* <Button className="justify-content-md-center" onClick={() => {setUser(null);setToken(null);localStorage.clear()}}>Logout</Button> */}
                                 </Row>
                             )}
                         </div>

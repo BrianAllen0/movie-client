@@ -1,4 +1,5 @@
 import { Col, Button, Row } from "react-bootstrap";
+import { MovieListingFavorite } from "../movie-listing/movie-listing-favorite";
 
 export const ProfileView = ({user}) => {
     const convert = new Date(user.Birthday);
@@ -8,29 +9,25 @@ export const ProfileView = ({user}) => {
         Username: user.Username
     }
 
-    function hasFavorites() {
-        fetch("https://ba-movie-api.herokuapp.com/movies/favorites",{
-        body: JSON.stringify(data),
-        headers: {Authorization: `Bearer ${token}`}}).then((response)=>response.json()).then((json)=>{
-            if(json.length === 0) {
-                return false;
-            }
-            return true;
-        });
-    }
-
     return (
         <div>
             <Row>
-                <Col md={4} className="mt-5rem font-white">
-                <p>Username: {user.Username}</p>
-                <p>Email: {user.Email}</p>
-                <p>Birthday: {prettyBirthday}</p>
-                <Button href="/profile/update" >Update Info</Button>
+                <Col md={2} className="mt-5rem font-white user-info p-3">
+                    <p>Username: {user.Username}</p>
+                    <p>Email: {user.Email}</p>
+                    <p>Birthday: {prettyBirthday}</p>
+                    <Button href="/profile/update" >Update My Info</Button>
                 </Col>
             </Row>
-            <Row>
-                {user.FavoriteMovies.length === 0}
+            <Row className="mt-1rem">
+                <h2>Favorite Movies: </h2>
+                {user.FavoriteMovies.length === 0 ? (
+                    <p>No Favorites Yet!</p>
+                ) : (
+                    user.FavoriteMovies.map((movie)=>{
+                        return (<MovieListingFavorite key={movie.id} movie={movie}/>)
+                    })
+                )}
             </Row>
         </div>
     );
