@@ -1,5 +1,68 @@
-$color: steelblue;
+$primary: Indigo;
+@import '~bootstrap/scss/bootstrap.scss';
+$font-color: white;
+$page-background: rgb(59, 57, 65);
+$spacer: 1rem;
+$card-background: darken($page-background, 10%);
+
+* {
+    //border: 1px red solid;
+    font-family: 'Inter', sans-serif;
+    color: $font-color;
+}
+
+.font-white {
+    color: $font-color;
+}
+
+html, body {margin:0;padding:0;height:100%;}
+
+#root {
+    margin:0;
+    padding:0;
+    height:100%;
+    background-color: $page-background;
+}
+
+.background {
+    background-color: $page-background;
+    height: 100%;
+}
 
 .my-flix {
-    color: $color;
+    background-color: $page-background;
+}
+
+.user-info {
+    background-color: darken($page-background, 10%);
+    border-radius: 2rem;
+    margin-left: 1rem;
+}
+
+.myflix-navbar {
+    background-color: darken(indigo, 10%);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.mt-5rem{
+    margin-top: 5rem;
+}
+
+.mb-1rem{
+    margin-bottom: 1rem;
+}
+
+.mt-1rem{
+    margin-top: 1rem;
+}
+
+.movie-view {
+    background-color: darken($page-background, 10%);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.movie-card {
+    background-color: darken($page-background, 10%);
 }
