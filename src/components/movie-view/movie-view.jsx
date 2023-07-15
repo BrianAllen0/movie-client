@@ -15,14 +15,18 @@ export const MovieView = ({ user, movies, onBackButton }) => {
     event.preventDefault();
 
     axios
-      .psot(`/movies/favorites/add/${movieTitle}`, data)
+      .post(`/movies/favorites/add/${currentMovie.Title}`, data)
       .then((response) => {
-        console.log(`Added favorite: ${movieTitle}`);
+        console.log(`Added favorite: ${currentMovie.Title}`);
       })
       .catch((e) => {
         alert("Something went wrong!");
       });
   };
+
+  if (!currentMovie) {
+    return <div>Loading..</div>;
+  }
 
   return (
     <Col md={6} className="font-white movie-view">
@@ -43,7 +47,7 @@ export const MovieView = ({ user, movies, onBackButton }) => {
       </div>
       <Row className="justify-content-between">
         <Col md={4} className="d-flex justify-content-start">
-          <Button className="h-100" href="/" nClick={onBackButton}>
+          <Button className="h-100" href="/" onClick={onBackButton}>
             Back
           </Button>
         </Col>

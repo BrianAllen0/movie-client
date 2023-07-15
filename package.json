@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "serve": "parcel src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.9.3",
+    "buffer": "^6.0.3",
     "parcel": "^2.9.3",
     "process": "^0.11.10"
   }
