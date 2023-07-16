@@ -13191,6 +13191,10 @@ textarea.form-control-lg {
   font-family: Inter, sans-serif;
 }
 
+.outline {
+  border: 1px solid red;
+}
+
 .font-white {
   color: #fff;
 }
@@ -13229,12 +13233,25 @@ html, body {
   padding-right: 1rem;
 }
 
+.navbar-bg {
+  background-color: #2e004f;
+}
+
 .mt-5rem {
   margin-top: 5rem;
 }
 
+.mt-1-2rem {
+  margin-top: .5rem;
+}
+
 .mb-1rem {
   margin-bottom: 1rem;
+}
+
+.tight {
+  margin: 0;
+  padding: 0;
 }
 
 .mt-1rem {

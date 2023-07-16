@@ -11,6 +11,10 @@ $card-background: darken($page-background, 10%);
     color: $font-color;
 }
 
+.outline {
+    border: 1px red solid;
+}
+
 .font-white {
     color: $font-color;
 }
@@ -45,12 +49,27 @@ html, body {margin:0;padding:0;height:100%;}
     padding-right: 1rem;
 }
 
+.navbar-bg {
+    background-color: darken(indigo, 10%);
+}
+
+
 .mt-5rem{
     margin-top: 5rem;
 }
 
+.mt-1-2rem{
+    margin-top: 0.5rem;
+}
+
 .mb-1rem{
     margin-bottom: 1rem;
+}
+
+
+.tight {
+    margin: 0 0;
+    padding: 0 0;
 }
 
 .mt-1rem{
