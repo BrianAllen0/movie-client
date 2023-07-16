@@ -46751,7 +46751,7 @@ const MovieView = ({ user, movies, onBackButton })=>{
     const addFavorite = (event)=>{
         event.preventDefault();
         fetch(`/movies/favorites/add/${movieTitle}`, {
-            Method: "POST",
+            method: "POST",
             body: JSON.stringify(data),
             headers: {
                 "Content-Type": "application/json"
