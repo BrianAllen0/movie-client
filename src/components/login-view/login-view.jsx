@@ -10,8 +10,8 @@ export const LoginView = ({onLoggedIn, onClickRegister}) => {
             access: username,
             secret: password
         };
-        fetch(`https://ba-movie-api.herokuapp.com/user/login?Username=${data.access}&Password=${data.secret}`,
-        {method: "POST", headers: {"Content-Type": "application/json"}}).then((response)=>response.json()).then((data)=>{
+        fetch("https://ba-movie-api.herokuapp.com/user/login",
+        {method: "POST", body: {Username: data.access, Password: data.secret}, headers: {"Content-Type": "application/json"}}).then((response)=>response.json()).then((data)=>{
             console.log(data);
             if(data.user) {
                 localStorage.setItem("user", JSON.stringify(data.user));
