@@ -13186,8 +13186,86 @@ textarea.form-control-lg {
   }
 }
 
-.my-flix {
+* {
   color: #fff;
+  font-family: Inter, sans-serif;
+}
+
+.outline {
+  border: 1px solid red;
+}
+
+.font-white {
+  color: #fff;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  background-color: #3b3941;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.background {
+  background-color: #3b3941;
+  height: 100%;
+}
+
+.my-flix {
+  background-color: #3b3941;
+}
+
+.user-info {
+  background-color: #222126;
+  border-radius: 2rem;
+  margin-left: 1rem;
+}
+
+.myflix-navbar {
+  background-color: #2e004f;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.navbar-bg {
+  background-color: #2e004f;
+}
+
+.mt-5rem {
+  margin-top: 5rem;
+}
+
+.mt-1-2rem {
+  margin-top: .5rem;
+}
+
+.mb-1rem {
+  margin-bottom: 1rem;
+}
+
+.tight {
+  margin: 0;
+  padding: 0;
+}
+
+.mt-1rem {
+  margin-top: 1rem;
+}
+
+.movie-view {
+  background-color: #222126;
+  border-radius: .5rem;
+  padding: 1rem;
+}
+
+.movie-card {
+  background-color: #222126;
 }
 
 /*# sourceMappingURL=index.ce1d6491.css.map */

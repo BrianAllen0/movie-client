@@ -18,7 +18,7 @@ export const RegisterView = ({onClickLogin}) => {
         fetch("https://ba-movie-api.herokuapp.com/user/register",{
         Method: "POST", 
         body: JSON.stringify(data), 
-        headers: {"Content-Type": "application/json"}}).then((response)=>{
+        headers: {"Content-Type": "application/json", Authorization: `Bearer ${localStorage.getItem("token")}`}}).then((response)=>{
             if(response.ok) {
                 alert("Registered successfully!");
                 window.location.reload();
@@ -32,8 +32,8 @@ export const RegisterView = ({onClickLogin}) => {
     }
 
     return(
-        <Col md={3}>
-            <Form>
+        <Col md={3} className="mt-5rem">
+            <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Label>Username:</Form.Label>
                     <Form.Control
@@ -69,9 +69,11 @@ export const RegisterView = ({onClickLogin}) => {
                         required
                     />
                 </Form.Group>
-                <Button type="submit">Register</Button>
-                <p>Or</p>
-                <Button onClick={changeToLogin}>Login</Button>
+                <Form.Group inline className="mt-1rem">
+                    <Button className="" type="submit">Register</Button>
+                    <span> OR: </span>
+                    <Button className="" onClick={changeToLogin}>Login</Button>
+                </Form.Group>
             </Form>
         </Col>
     );
