@@ -47109,7 +47109,8 @@ const RegisterView = ({ onClickLogin })=>{
             Method: "POST",
             body: JSON.stringify(data),
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`
             }
         }).then((response)=>{
             if (response.ok) {
@@ -47708,10 +47709,11 @@ const ProfileUpdateView = ({ user })=>{
         if (newEmail) info["Email"] = newEmail;
         if (Object.keys(info).length === 0) alert("No info to update!");
         else fetch("https://ba-movie-api.herokuapp.com/user/update", {
-            Method: "PATCH",
+            method: "PATCH",
             body: JSON.stringify(info),
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`
             }
         }).then((response)=>{
             if (response.ok) alert("Updated successfully!");
@@ -47731,7 +47733,7 @@ const ProfileUpdateView = ({ user })=>{
                             children: "New Password:"
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-update-view.jsx",
-                            lineNumber: 42,
+                            lineNumber: 41,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -47740,13 +47742,13 @@ const ProfileUpdateView = ({ user })=>{
                             onChange: (e)=>setNewPassword(e.target.value)
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-update-view.jsx",
-                            lineNumber: 43,
+                            lineNumber: 42,
                             columnNumber: 21
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/profile-view/profile-update-view.jsx",
-                    lineNumber: 41,
+                    lineNumber: 40,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -47755,7 +47757,7 @@ const ProfileUpdateView = ({ user })=>{
                             children: "New Email:"
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-update-view.jsx",
-                            lineNumber: 50,
+                            lineNumber: 49,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -47764,13 +47766,13 @@ const ProfileUpdateView = ({ user })=>{
                             onChange: (e)=>setNewEmail(e.target.value)
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-update-view.jsx",
-                            lineNumber: 51,
+                            lineNumber: 50,
                             columnNumber: 21
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/profile-view/profile-update-view.jsx",
-                    lineNumber: 49,
+                    lineNumber: 48,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -47783,14 +47785,14 @@ const ProfileUpdateView = ({ user })=>{
                             children: "Update"
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-update-view.jsx",
-                            lineNumber: 58,
+                            lineNumber: 57,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                             children: " OR: "
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-update-view.jsx",
-                            lineNumber: 59,
+                            lineNumber: 58,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -47798,24 +47800,24 @@ const ProfileUpdateView = ({ user })=>{
                             children: "Cancel"
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-update-view.jsx",
-                            lineNumber: 60,
+                            lineNumber: 59,
                             columnNumber: 21
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/profile-view/profile-update-view.jsx",
-                    lineNumber: 57,
+                    lineNumber: 56,
                     columnNumber: 17
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/profile-view/profile-update-view.jsx",
-            lineNumber: 40,
+            lineNumber: 39,
             columnNumber: 13
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/profile-view/profile-update-view.jsx",
-        lineNumber: 39,
+        lineNumber: 38,
         columnNumber: 9
     }, undefined);
 };

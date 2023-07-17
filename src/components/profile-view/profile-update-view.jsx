@@ -9,7 +9,6 @@ export const ProfileUpdateView = ({user}) => {
 
     const updateInfo = (event) => {
         event.preventDefault();
-        
         let info = {}
         if(newPassword) {
             info["Password"] = newPassword;
@@ -22,9 +21,9 @@ export const ProfileUpdateView = ({user}) => {
             alert("No info to update!");
         } else {
             fetch("https://ba-movie-api.herokuapp.com/user/update",{
-            Method: "PATCH", 
+            method: "PATCH", 
             body: JSON.stringify(info), 
-            headers: {"Content-Type": "application/json"}}).then((response)=>{
+            headers: {"Content-Type": "application/json", Authorization: `Bearer ${localStorage.getItem("token")}`},}).then((response)=>{
                 if(response.ok) {
                     alert("Updated successfully!");
                 } else {

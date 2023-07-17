@@ -18,7 +18,7 @@ export const RegisterView = ({onClickLogin}) => {
         fetch("https://ba-movie-api.herokuapp.com/user/register",{
         Method: "POST", 
         body: JSON.stringify(data), 
-        headers: {"Content-Type": "application/json"}}).then((response)=>{
+        headers: {"Content-Type": "application/json", Authorization: `Bearer ${localStorage.getItem("token")}`}}).then((response)=>{
             if(response.ok) {
                 alert("Registered successfully!");
                 window.location.reload();
