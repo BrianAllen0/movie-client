@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 export const MovieView = ({user, movies, onBackButton}) => {
     const { movieTitle } = useParams();
     const currentMovie = movies.find((m)=> m.title === movieTitle);
+    const token = localStorage.getItem("token");
     
     const data = {
-        User: user
+        Username: user
     }
 
     const addFavorite = (event) => {
@@ -16,7 +17,9 @@ export const MovieView = ({user, movies, onBackButton}) => {
         fetch(`/movies/favorites/add/${movieTitle}`,{
         method: "POST",
         body: JSON.stringify(data),
-        headers: {"Content-Type": "application/json"}}).then((response)=>{
+        headers: {"Content-Type": "application/json"},
+        Authorization: `Bearer ${token}`
+        }).then((response)=>{
             if(response.ok) {
                 console.log(`Added favorite: ${movieTitle}`)
             } else {
@@ -25,6 +28,9 @@ export const MovieView = ({user, movies, onBackButton}) => {
         });
     }
     
+    if(!currentMovie) {
+        return(<div>Loading...</div>)
+    }
     
     return (
     <Col md={6} className="font-white movie-view">

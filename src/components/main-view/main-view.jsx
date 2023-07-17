@@ -15,9 +15,8 @@ export const MainView = () => {
     const [user, setUser] = useState(storedUser? storedUser: null);
     const [registering, setRegistering] = useState(null);
     const [token, setToken] = useState(storedToken? storedToken: null);
-    const [allMovies, setallMovies] = useState([]);
+    const [allMovies, setallMovies] = useState([]);//currentMovies
     const [searchedMovies, setSearchedMovies] = useState([]);
-    let currentMovies = [];
     useEffect(()=> {
         fetch("https://ba-movie-api.herokuapp.com/movies",{headers: {Authorization: `Bearer ${token}`}}).then((response)=>response.json()).then((json)=>{
             const movieFetchData = json.map((doc)=>{
@@ -32,19 +31,9 @@ export const MainView = () => {
                 };
             });
             setallMovies(movieFetchData);
-            currentMovies = movieFetchData;
+            setSearchedMovies(movieFetchData);
         });
     }, []);
-
-    function currentMoviesFromSearch() {
-        for (let index = 0; index < searchedMovies.length; index++) {
-            for (let index2 = 0; index2 < allMovies.length; index2++) {
-                if(allMovies[index2].title.includes(searchedMovies[index])) {
-                    currentMovies.push(allMovies[index2]);
-                }
-            }
-        }
-    }
 
     return(
         <BrowserRouter>
@@ -101,7 +90,7 @@ export const MainView = () => {
                                 <Navigate to="/login"/>
                             ) : (
                                 <Row className="mt-5rem">
-                                    {currentMovies.map((movie)=> {
+                                    {searchedMovies.map((movie)=> {
                                         return(<MovieListing key={movie.id} movie={movie}/>);
                                     })}
                                 </Row>
@@ -116,7 +105,9 @@ export const MainView = () => {
                             {!user ? (
                                 <Navigate to="/login"/>
                             ) : (
-                                <ProfileView user={user}/>
+                                <ProfileView 
+                                user={user}
+                                allMovies={allMovies}/>
                             )}
                         </div>
                     }
@@ -141,7 +132,7 @@ export const MainView = () => {
                                 <Navigate to="/login"/>
                             ) : (
                                 <Row className="justify-content-md-center mb-1rem mt-5rem">
-                                    <MovieView user={user} movies={currentMovies}/>
+                                    <MovieView user={user} movies={allMovies}/>
                                 </Row>
                             )}
                         </div>
