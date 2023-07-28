@@ -9,6 +9,7 @@ export const ProfileView = ({user, allMovies}) => {
         Username: user.Username
     }
     console.log(allMovies);
+    console.log(user.FavoriteMovies);
     return (
         <div>
             <Row>
