@@ -26,6 +26,7 @@ export const MovieView = ({ user, movies, updateUser }) => {
             if (response.ok) {
                 console.log(`Added favorite: ${movieTitle}`);
                 updateUser(user.Username);
+                lert("Movie added to favorites!");
             } else {
                 alert("Movie already in favorites!");
             }
