@@ -4,7 +4,17 @@ import { Link } from "react-router-dom";
 
 export const MovieView = ({ user, movies, updateUser }) => {
     const { movieId } = useParams();
-    const currentMovie = movies.find((m) => String(m._id) === movieId);
+    const currentMovie = movies.find((m) => {
+        console.log("_id:");
+        console.log(m._id);
+        console.log("movieId:");
+        console.log(movieId);
+        if (String(m._id) === movieId) {
+            return true;
+        } else {
+            return false;
+        }
+    });
     const token = localStorage.getItem("token");
 
     const uri = "https://ba-movie-api.herokuapp.com";
