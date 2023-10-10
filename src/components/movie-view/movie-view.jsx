@@ -7,21 +7,26 @@ export const MovieView = ({ user, movies, updateUser }) => {
     const currentMovie = movies.find((m) => m._id === movieId);
     const token = localStorage.getItem("token");
 
+    const uri = "https://ba-movie-api.herokuapp.com";
+
     const data = {
         Username: user,
     };
 
     const addFavorite = (event) => {
         event.preventDefault();
-
-        fetch(`/movies/favorites/add/${movieTitle}`, {
+        console.log(JSON.stringify(data));
+        fetch(`${uri}/movies/favorites/add/${movieId}`, {
             method: "POST",
-            body: JSON.stringify(data),
+            // body: JSON.stringify(data),
             headers: { "Content-Type": "application/json" },
             Authorization: `Bearer ${token}`,
         }).then((response) => {
+            console.log(response);
             if (response.ok) {
-                console.log(`Added favorite: ${movieTitle}`);
+                console.log("Added favorite!");
+                updateUser(user.Username);
+                alert("Movie added to favorites!");
             } else {
                 alert("Movie already in favorites!");
             }
