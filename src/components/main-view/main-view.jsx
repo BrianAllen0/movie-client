@@ -42,8 +42,10 @@ export const MainView = () => {
         fetch(`https://ba-movie-api.herokuapp.com/user/${username}`, { headers: { Authorization: `Bearer ${token}` } })
             .then((response) => response.json())
             .then((json) => {
+                console.log(json);
                 localStorage.setItem("user", json);
             });
+        console.log("NOTHING");
     };
 
     return (

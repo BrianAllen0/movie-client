@@ -24,8 +24,8 @@ export const MovieListingFavorite = ({ movie, user, updateUser }) => {
             console.log(response);
             if (response.ok) {
                 console.log(`Removed favorite: ${movie.Title}`);
+                alert(`Removed favorite: ${movie.Title}`);
                 updateUser(user.Username);
-                Navigate("/profile");
             } else {
                 alert(`Movie: ${movie.Title} is not in favorites!`);
             }

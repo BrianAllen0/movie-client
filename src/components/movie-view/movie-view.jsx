@@ -3,8 +3,8 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
 export const MovieView = ({ user, movies, updateUser }) => {
-    const { movieTitle } = useParams();
-    const currentMovie = movies.find((m) => m.title === movieTitle);
+    const { movieId } = useParams();
+    const currentMovie = movies.find((m) => m._id === movieId);
     const token = localStorage.getItem("token");
 
     const uri = "https://ba-movie-api.herokuapp.com";
@@ -16,7 +16,7 @@ export const MovieView = ({ user, movies, updateUser }) => {
     const addFavorite = (event) => {
         event.preventDefault();
         console.log(JSON.stringify(data));
-        fetch(`${uri}/movies/favorites/add/${movieTitle}`, {
+        fetch(`${uri}/movies/favorites/add/${movieId}`, {
             method: "POST",
             body: JSON.stringify(data),
             headers: { "Content-Type": "application/json" },
@@ -24,9 +24,9 @@ export const MovieView = ({ user, movies, updateUser }) => {
         }).then((response) => {
             console.log(response);
             if (response.ok) {
-                console.log(`Added favorite: ${movieTitle}`);
+                console.log("Added favorite!");
                 updateUser(user.Username);
-                lert("Movie added to favorites!");
+                alert("Movie added to favorites!");
             } else {
                 alert("Movie already in favorites!");
             }
