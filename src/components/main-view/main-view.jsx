@@ -24,7 +24,7 @@ export const MainView = () => {
             .then((json) => {
                 const movieFetchData = json.map((doc) => {
                     return {
-                        id: doc._id,
+                        _id: doc._id,
                         title: doc.Title,
                         description: doc.Description,
                         genre: doc.Genre.Name,
