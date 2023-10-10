@@ -1,13 +1,13 @@
 import { Col, Button, Row } from "react-bootstrap";
 import { MovieListingFavorite } from "../movie-listing/movie-listing-favorite";
 
-export const ProfileView = ({user, allMovies}) => {
+export const ProfileView = ({ user, allMovies, updateUser }) => {
     const convert = new Date(user.Birthday);
-    const prettyBirthday = convert.toLocaleDateString(undefined, {day: 'numeric', month: 'long', year: 'numeric'});
-    let favoriteMovies = allMovies.filter(m => user.FavoriteMovies.includes(m.id));
+    const prettyBirthday = convert.toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" });
+    let favoriteMovies = allMovies.filter((m) => user.FavoriteMovies.includes(m.id));
     const data = {
-        Username: user.Username
-    }
+        Username: user.Username,
+    };
     console.log(allMovies);
     console.log(user.FavoriteMovies);
     return (
@@ -17,7 +17,7 @@ export const ProfileView = ({user, allMovies}) => {
                     <p>Username: {user.Username}</p>
                     <p>Email: {user.Email}</p>
                     <p>Birthday: {prettyBirthday}</p>
-                    <Button href="/profile/update" >Update My Info</Button>
+                    <Button href="/profile/update">Update My Info</Button>
                 </Col>
             </Row>
             <Row className="mt-1rem">
@@ -25,11 +25,11 @@ export const ProfileView = ({user, allMovies}) => {
                 {user.FavoriteMovies.length === 0 ? (
                     <p>No Favorites Yet!</p>
                 ) : (
-                    favoriteMovies.map((movie)=>{
-                        return (<MovieListingFavorite key={movie.id} movie={movie}/>)
+                    favoriteMovies.map((movie) => {
+                        return <MovieListingFavorite updateUser={updateUser} user={user} key={movie.id} movie={movie} />;
                     })
                 )}
             </Row>
         </div>
     );
-}
+};
