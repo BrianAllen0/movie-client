@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 export const MovieView = ({ user, movies, updateUser }) => {
     const { movieId } = useParams();
     const currentMovie = movies.find((m) => {
-        console.log("_id:");
-        console.log(m._id);
+        console.log("id:");
+        console.log(m.id);
         console.log("movieId:");
         console.log(movieId);
-        if (String(m._id) === String(movieId)) {
+        if (String(m.id) === String(movieId)) {
             return true;
         } else {
             return false;

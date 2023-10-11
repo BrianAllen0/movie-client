@@ -24,7 +24,7 @@ export const MainView = () => {
             .then((json) => {
                 const movieFetchData = json.map((doc) => {
                     return {
-                        _id: doc._id,
+                        id: doc._id,
                         title: doc.Title,
                         description: doc.Description,
                         genre: doc.Genre.Name,
@@ -90,7 +90,7 @@ export const MainView = () => {
                                 ) : (
                                     <Row className="mt-5rem">
                                         {searchedMovies.map((movie) => {
-                                            return <MovieListing key={movie._id} movie={movie} />;
+                                            return <MovieListing key={movie.id} movie={movie} />;
                                         })}
                                     </Row>
                                 )}
