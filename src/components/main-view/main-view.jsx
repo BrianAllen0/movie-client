@@ -90,7 +90,7 @@ export const MainView = () => {
                                 ) : (
                                     <Row className="mt-5rem">
                                         {searchedMovies.map((movie) => {
-                                            return <MovieListing key={movie.id} movie={movie} />;
+                                            return <MovieListing key={movie._id} movie={movie} />;
                                         })}
                                     </Row>
                                 )}

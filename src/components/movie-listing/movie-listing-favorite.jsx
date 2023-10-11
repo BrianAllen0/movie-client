@@ -33,7 +33,7 @@ export const MovieListingFavorite = ({ movie, user, updateUser }) => {
     };
 
     return (
-        <Col md={3} key={movie.id} className="mb-5">
+        <Col md={3} key={movie._id} className="mb-5">
             <Card className="h-100 movie-card font-white">
                 <Card.Img variant="top" src={movie.image}></Card.Img>
                 <Card.Body>

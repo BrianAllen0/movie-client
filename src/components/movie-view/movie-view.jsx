@@ -9,7 +9,7 @@ export const MovieView = ({ user, movies, updateUser }) => {
         console.log(m._id);
         console.log("movieId:");
         console.log(movieId);
-        if (String(m._id) === movieId) {
+        if (String(m._id) === String(movieId)) {
             return true;
         } else {
             return false;

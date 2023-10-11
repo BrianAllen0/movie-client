@@ -26,7 +26,7 @@ export const ProfileView = ({ user, allMovies, updateUser }) => {
                     <p>No Favorites Yet!</p>
                 ) : (
                     favoriteMovies.map((movie) => {
-                        return <MovieListingFavorite updateUser={updateUser} user={user} key={movie.id} movie={movie} />;
+                        return <MovieListingFavorite updateUser={updateUser} user={user} key={movie._id} movie={movie} />;
                     })
                 )}
             </Row>
