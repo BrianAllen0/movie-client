@@ -23,8 +23,8 @@ export const MovieView = ({ user, movies, updateUser }) => {
         }).then((response) => {
             console.log(response);
             if (response.ok) {
-                console.log("Added favorite!");
-                updateUser(user.Username);
+                user.FavoriteMovies.push(data.movieId.toString());
+                localStorage.setItem("user", JSON.stringify(user));
                 alert("Movie added to favorites!");
             } else {
                 alert("Movie already in favorites!");
