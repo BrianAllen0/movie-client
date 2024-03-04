@@ -8,8 +8,8 @@ export const ProfileView = ({ user, allMovies, updateUser }) => {
     const data = {
         Username: user.Username,
     };
-    console.log(allMovies);
-    console.log(user.FavoriteMovies);
+    console.log("Allmovies", allMovies);
+    console.log("favorites", user.FavoriteMovies);
     return (
         <div>
             <Row>

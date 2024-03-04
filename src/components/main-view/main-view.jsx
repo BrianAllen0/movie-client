@@ -38,12 +38,12 @@ export const MainView = () => {
             });
     }, []);
 
-    const updateUser = (username) => {
-        fetch(`https://ba-movie-api.herokuapp.com/user/${username}`, { headers: { Authorization: `Bearer ${token}` } })
+    const updateUser = () => {
+        fetch(`https://ba-movie-api.herokuapp.com/user`, { headers: { Authorization: `Bearer ${token}` } })
             .then((response) => response.json())
             .then((json) => {
                 console.log(json);
-                localStorage.setItem("user", json);
+                localStorage.setItem("user", JSON.stringify(json));
             });
         console.log("NOTHING");
     };

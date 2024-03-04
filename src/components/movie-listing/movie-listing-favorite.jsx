@@ -5,13 +5,11 @@ import { Link, Navigate } from "react-router-dom";
 export const MovieListingFavorite = ({ movie, user, updateUser }) => {
     const removeFavorite = (event) => {
         event.preventDefault();
+        console.log(movie.id);
 
         const token = localStorage.getItem("token");
         const uri = "https://ba-movie-api.herokuapp.com";
-        const data = {
-            Title: movie.title,
-            Username: user.Username,
-        };
+        const data = { movieId: movie.id };
 
         console.log(user.Username);
         console.log(movie);
@@ -23,11 +21,11 @@ export const MovieListingFavorite = ({ movie, user, updateUser }) => {
         }).then((response) => {
             console.log(response);
             if (response.ok) {
-                console.log(`Removed favorite: ${movie.Title}`);
-                alert(`Removed favorite: ${movie.Title}`);
+                console.log(`Removed favorite: ${movie.title}`);
+                alert(`Removed favorite: ${movie.title}`);
                 updateUser(user.Username);
             } else {
-                alert(`Movie: ${movie.Title} is not in favorites!`);
+                alert(`Movie: ${movie.title} is not in favorites!`);
             }
         });
     };

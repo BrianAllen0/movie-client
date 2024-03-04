@@ -9,18 +9,17 @@ export const MovieView = ({ user, movies, updateUser }) => {
 
     const uri = "https://ba-movie-api.herokuapp.com";
 
-    const data = {
-        Username: user,
-    };
-
     const addFavorite = (event) => {
         event.preventDefault();
+        const data = {
+            movieId: movieId,
+        };
         console.log(JSON.stringify(data));
-        fetch(`${uri}/movies/favorites/add/${movieId}`, {
+        console.log(token);
+        fetch(`${uri}/movies/favorites/`, {
             method: "POST",
-            // body: JSON.stringify(data),
-            headers: { "Content-Type": "application/json" },
-            Authorization: `Bearer ${token}`,
+            body: JSON.stringify(data),
+            headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         }).then((response) => {
             console.log(response);
             if (response.ok) {
