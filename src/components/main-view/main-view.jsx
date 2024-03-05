@@ -89,7 +89,7 @@ export const MainView = () => {
                     />
                     <Route
                         path="/profile"
-                        element={<div>{!user ? <Navigate to="/login" /> : <ProfileView user={user} allMovies={allMovies} />}</div>}
+                        element={<div>{!user ? <Navigate to="/login" /> : <ProfileView user={user} setUser={setUser} allMovies={allMovies} />}</div>}
                     />
                     <Route path="/profile/update" element={<div>{!user ? <Navigate to="/login" /> : <ProfileUpdateView user={user} />}</div>} />
                     <Route

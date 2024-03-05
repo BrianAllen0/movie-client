@@ -1,15 +1,16 @@
+import { useEffect } from "react";
 import { Col, Button, Row } from "react-bootstrap";
 import { MovieListingFavorite } from "../movie-listing/movie-listing-favorite";
 
-export const ProfileView = ({ user, allMovies }) => {
+export const ProfileView = ({ user, setUser, allMovies }) => {
     const convert = new Date(user.Birthday);
     const prettyBirthday = convert.toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" });
     let favoriteMovies = allMovies.filter((m) => user.FavoriteMovies.includes(m.id));
-    const data = {
-        Username: user.Username,
-    };
-    console.log("Allmovies", allMovies);
-    console.log("favorites", user.FavoriteMovies);
+
+    useEffect(() => {
+        favoriteMovies = allMovies.filter((m) => user.FavoriteMovies.includes(m.id));
+    }, [`${user}`]);
+
     return (
         <div>
             <Row>
@@ -26,7 +27,7 @@ export const ProfileView = ({ user, allMovies }) => {
                     <p>No Favorites Yet!</p>
                 ) : (
                     favoriteMovies.map((movie) => {
-                        return <MovieListingFavorite user={user} key={movie.id} movie={movie} />;
+                        return <MovieListingFavorite user={user} setUser={setUser} key={movie.id} movie={movie} />;
                     })
                 )}
             </Row>
