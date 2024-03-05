@@ -5,25 +5,23 @@ import { Link, Navigate } from "react-router-dom";
 export const MovieListingFavorite = ({ movie, user, updateUser }) => {
     const removeFavorite = (event) => {
         event.preventDefault();
-        console.log(movie.id);
 
         const token = localStorage.getItem("token");
         const uri = "https://ba-movie-api.herokuapp.com";
         const data = { movieId: movie.id };
 
-        console.log(user.Username);
-        console.log(movie);
-        fetch(`${uri}/movies/favorites/remove`, {
+        fetch(`${uri}/movies/favorites`, {
             method: "DELETE",
             body: JSON.stringify(data),
-            headers: { "Content-Type": "application/json" },
-            Authorization: `Bearer ${token}`,
+            headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         }).then((response) => {
             console.log(response);
             if (response.ok) {
                 console.log(`Removed favorite: ${movie.title}`);
                 alert(`Removed favorite: ${movie.title}`);
-                updateUser(user.Username);
+                const removeIndex = user.FavoriteMovies.indexOf(data.movieId.toString());
+                user.FavoriteMovies.splice(removeIndex, 1);
+                localStorage.setItem("user", JSON.stringify(user));
             } else {
                 alert(`Movie: ${movie.title} is not in favorites!`);
             }
