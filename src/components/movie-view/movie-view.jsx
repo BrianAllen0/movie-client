@@ -2,7 +2,7 @@ import { Button, Col, Row } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
-export const MovieView = ({ user, movies, updateUser }) => {
+export const MovieView = ({ user, movies }) => {
     const { movieId } = useParams();
     const currentMovie = movies.find((m) => String(m.id) === String(movieId));
     const token = localStorage.getItem("token");

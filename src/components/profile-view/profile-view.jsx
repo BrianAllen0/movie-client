@@ -1,7 +1,7 @@
 import { Col, Button, Row } from "react-bootstrap";
 import { MovieListingFavorite } from "../movie-listing/movie-listing-favorite";
 
-export const ProfileView = ({ user, allMovies, updateUser }) => {
+export const ProfileView = ({ user, allMovies }) => {
     const convert = new Date(user.Birthday);
     const prettyBirthday = convert.toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" });
     let favoriteMovies = allMovies.filter((m) => user.FavoriteMovies.includes(m.id));
@@ -26,7 +26,7 @@ export const ProfileView = ({ user, allMovies, updateUser }) => {
                     <p>No Favorites Yet!</p>
                 ) : (
                     favoriteMovies.map((movie) => {
-                        return <MovieListingFavorite updateUser={updateUser} user={user} key={movie.id} movie={movie} />;
+                        return <MovieListingFavorite user={user} key={movie.id} movie={movie} />;
                     })
                 )}
             </Row>

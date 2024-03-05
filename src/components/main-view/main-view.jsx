@@ -38,16 +38,6 @@ export const MainView = () => {
             });
     }, []);
 
-    const updateUser = () => {
-        fetch(`https://ba-movie-api.herokuapp.com/user`, { headers: { Authorization: `Bearer ${token}` } })
-            .then((response) => response.json())
-            .then((json) => {
-                console.log(json);
-                localStorage.setItem("user", JSON.stringify(json));
-            });
-        console.log("NOTHING");
-    };
-
     return (
         <BrowserRouter>
             <Row>
@@ -99,9 +89,7 @@ export const MainView = () => {
                     />
                     <Route
                         path="/profile"
-                        element={
-                            <div>{!user ? <Navigate to="/login" /> : <ProfileView updateUser={updateUser} user={user} allMovies={allMovies} />}</div>
-                        }
+                        element={<div>{!user ? <Navigate to="/login" /> : <ProfileView user={user} allMovies={allMovies} />}</div>}
                     />
                     <Route path="/profile/update" element={<div>{!user ? <Navigate to="/login" /> : <ProfileUpdateView user={user} />}</div>} />
                     <Route
@@ -112,7 +100,7 @@ export const MainView = () => {
                                     <Navigate to="/login" />
                                 ) : (
                                     <Row className="justify-content-md-center mb-1rem mt-5rem">
-                                        <MovieView updateUser={updateUser} user={user} movies={allMovies} />
+                                        <MovieView user={user} movies={allMovies} />
                                     </Row>
                                 )}
                             </div>
