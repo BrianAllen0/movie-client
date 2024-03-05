@@ -15,11 +15,13 @@ export const RegisterView = ({ onClickLogin }) => {
             Email: email,
             Birthday: birthday,
         };
-        fetch("https://ba-movie-api.herokuapp.com/user/register", {
-            Method: "POST",
+
+        fetch("https://ba-movie-api.herokuapp.com/user/", {
+            method: "POST",
             body: JSON.stringify(data),
-            headers: { "Content-Type": "application/json", Authorization: `Bearer ${localStorage.getItem("token")}` },
+            headers: { "Content-Type": "application/json" },
         }).then((response) => {
+            console.log(response);
             if (response.ok) {
                 alert("Registered successfully!");
                 window.location.reload();
@@ -54,7 +56,7 @@ export const RegisterView = ({ onClickLogin }) => {
                         value={birthday}
                         onChange={(e) => {
                             setBirthday(e.target.value);
-                            console.log(birthday.toDateString());
+                            console.log(birthday);
                         }}
                         required
                     />
