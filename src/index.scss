@@ -1,5 +1,5 @@
 $primary: Indigo;
-@import '~bootstrap/scss/bootstrap.scss';
+@import "~bootstrap/scss/bootstrap.scss";
 $font-color: white;
 $page-background: rgb(59, 57, 65);
 $spacer: 1rem;
@@ -7,7 +7,7 @@ $card-background: darken($page-background, 10%);
 
 * {
     //border: 1px red solid;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     color: $font-color;
 }
 
@@ -19,12 +19,17 @@ $card-background: darken($page-background, 10%);
     color: $font-color;
 }
 
-html, body {margin:0;padding:0;height:100%;}
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
 
 #root {
-    margin:0;
-    padding:0;
-    height:100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
     background-color: $page-background;
 }
 
@@ -53,27 +58,63 @@ html, body {margin:0;padding:0;height:100%;}
     background-color: darken(indigo, 10%);
 }
 
+.ms-1-2rem {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
 
-.mt-5rem{
+.ps-1-2rem {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.p-1rem {
+    padding: 1rem;
+}
+
+.mt-5rem {
     margin-top: 5rem;
 }
 
-.mt-1-2rem{
+.mt-1-2rem {
     margin-top: 0.5rem;
 }
 
-.mb-1rem{
+.mb-1rem {
     margin-bottom: 1rem;
 }
 
+.w-80p {
+    width: 80%;
+}
+.w-100p {
+    width: 100%;
+}
+
+.centered {
+    justify-content: center;
+    display: flex;
+}
+
+.c {
+    justify-self: center;
+}
+
+.centered-text {
+    text-align: center;
+}
 
 .tight {
     margin: 0 0;
     padding: 0 0;
 }
 
-.mt-1rem{
+.mt-1rem {
     margin-top: 1rem;
+}
+
+.mt-2rem {
+    margin-top: 2rem;
 }
 
 .movie-view {

@@ -18,7 +18,14 @@ export const ProfileView = ({ user, setUser, allMovies }) => {
                     <p>Username: {user.Username}</p>
                     <p>Email: {user.Email}</p>
                     <p>Birthday: {prettyBirthday}</p>
-                    <Button href="/profile/update">Update My Info</Button>
+                    <Row className="centered">
+                        <Button className="w-80p" href="/profile/update">
+                            Update My Info
+                        </Button>
+                        <Button className="w-80p mt-1rem" href="/profile/delete">
+                            Delete My Account
+                        </Button>
+                    </Row>
                 </Col>
             </Row>
             <Row className="mt-1rem">

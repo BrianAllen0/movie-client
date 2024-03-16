@@ -7,6 +7,7 @@ import { RegisterView } from "../register-view/register-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { ProfileView } from "../profile-view/profile-view";
 import { ProfileUpdateView } from "../profile-view/profile-update-view";
+import { ProfileDeleteView } from "../profile-view/profile-delete-view";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 export const MainView = () => {
@@ -92,6 +93,7 @@ export const MainView = () => {
                         element={<div>{!user ? <Navigate to="/login" /> : <ProfileView user={user} setUser={setUser} allMovies={allMovies} />}</div>}
                     />
                     <Route path="/profile/update" element={<div>{!user ? <Navigate to="/login" /> : <ProfileUpdateView user={user} />}</div>} />
+                    <Route path="/profile/delete" element={<div>{!user ? <Navigate to="/login" /> : <ProfileDeleteView user={user} />}</div>} />
                     <Route
                         path="/movies/:movieId"
                         element={
