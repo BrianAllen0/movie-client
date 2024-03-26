@@ -7,16 +7,21 @@ export const ProfileDeleteView = ({ user }) => {
     const [confirmedPassword, setConfirmedPassword] = useState("");
     const prettyBirthday = convert.toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" });
 
-    const deleteAccount = () => {
+    const deleteAccount = (event) => {
         console.log("ATTEMPTING");
+        event.preventDefault();
+        let data = { Password: confirmedPassword };
+
         fetch("https://ba-movie-api.herokuapp.com/user/", {
             method: "DELETE",
+            body: JSON.stringify(data),
             headers: { "Content-Type": "application/json", Authorization: `Bearer ${localStorage.getItem("token")}` },
         }).then((response) => {
             if (response.ok) {
                 console.log(response);
                 alert("Account deleted successfully!");
             } else {
+                console.log(response);
                 alert("Something went wrong!");
             }
             // navigate("/profile");

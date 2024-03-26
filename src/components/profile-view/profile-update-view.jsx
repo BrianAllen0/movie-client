@@ -17,9 +17,12 @@ export const ProfileUpdateView = ({ user }) => {
             shouldUpdate = true;
         }
         if (newEmail) {
+            user.Email = newEmail;
+            localStorage.setItem("user", JSON.stringify(user));
             newUserInfo.Email = newEmail;
             shouldUpdate = true;
         }
+
         if (!shouldUpdate) {
             alert("No info to update!");
         } else {
