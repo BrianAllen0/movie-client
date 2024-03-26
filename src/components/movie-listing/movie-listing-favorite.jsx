@@ -41,7 +41,7 @@ export const MovieListingFavorite = ({ movie, setUser, user }) => {
                     <Card.Title>{movie.title}</Card.Title>
                     <Row className="justify-content-between">
                         <Col md={4} className="d-flex justify-content-start">
-                            <Link to={`/movies/${encodeURIComponent(movie.title)}`}>
+                            <Link to={`/movies/${encodeURIComponent(String(movie.id))}`}>
                                 <Button>See More</Button>
                             </Link>
                         </Col>
