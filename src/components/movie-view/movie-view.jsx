@@ -14,14 +14,11 @@ export const MovieView = ({ user, movies }) => {
         const data = {
             movieId: movieId,
         };
-        console.log(JSON.stringify(data));
-        console.log(token);
         fetch(`${uri}/movies/favorites/`, {
             method: "POST",
             body: JSON.stringify(data),
             headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         }).then((response) => {
-            console.log(response);
             if (response.ok) {
                 user.FavoriteMovies.push(data.movieId.toString());
                 localStorage.setItem("user", JSON.stringify(user));

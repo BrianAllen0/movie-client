@@ -11,7 +11,6 @@ export const ProfileUpdateView = ({ user }) => {
         let shouldUpdate = false;
         event.preventDefault();
         let newUserInfo = { ...user };
-        console.log(newUserInfo);
         if (newPassword) {
             newUserInfo.Password = newPassword;
             shouldUpdate = true;
@@ -32,7 +31,6 @@ export const ProfileUpdateView = ({ user }) => {
                 headers: { "Content-Type": "application/json", Authorization: `Bearer ${localStorage.getItem("token")}` },
             }).then((response) => {
                 if (response.ok) {
-                    console.log(response);
                     alert("Updated successfully!");
                 } else {
                     alert("Update failed!");

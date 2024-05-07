@@ -8,7 +8,6 @@ export const ProfileDeleteView = ({ user }) => {
     const prettyBirthday = convert.toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" });
 
     const deleteAccount = (event) => {
-        console.log("ATTEMPTING");
         event.preventDefault();
         let data = { Password: confirmedPassword };
 
@@ -18,10 +17,8 @@ export const ProfileDeleteView = ({ user }) => {
             headers: { "Content-Type": "application/json", Authorization: `Bearer ${localStorage.getItem("token")}` },
         }).then((response) => {
             if (response.ok) {
-                console.log(response);
                 alert("Account deleted successfully!");
             } else {
-                console.log(response);
                 alert("Something went wrong!");
             }
             // navigate("/profile");

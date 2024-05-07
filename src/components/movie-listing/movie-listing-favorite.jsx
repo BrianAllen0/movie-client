@@ -15,9 +15,7 @@ export const MovieListingFavorite = ({ movie, setUser, user }) => {
             body: JSON.stringify(data),
             headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         }).then((response) => {
-            console.log(response);
             if (response.ok) {
-                console.log(`Removed favorite: ${movie.title}`);
                 alert(`Removed favorite: ${movie.title}`);
                 const removeIndex = user.FavoriteMovies.indexOf(data.movieId.toString());
                 user.FavoriteMovies.splice(removeIndex, 1);
@@ -28,7 +26,7 @@ export const MovieListingFavorite = ({ movie, setUser, user }) => {
                     FavoriteMovies: user.FavoriteMovies,
                 });
             } else {
-                console.log(`Movie: ${movie.title} is not in favorites!`);
+                alert(`Movie: ${movie.title} is not in favorites!`);
             }
         });
     };
