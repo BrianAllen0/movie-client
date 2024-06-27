@@ -3,13 +3,11 @@ import { Col, Button, Row } from "react-bootstrap";
 import { MovieListingFavorite } from "../movie-listing/movie-listing-favorite";
 
 export const ProfileView = ({ user, setUser, allMovies }) => {
-    let convert = new Date(user.Birthday);
+    let convert = new Date(user.Birthday); // convert from unix timestamp to human speak
     let prettyBirthday = convert.toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" });
     let favoriteMovies = allMovies.filter((m) => user.FavoriteMovies.includes(m.id));
 
     useEffect(() => {
-        convert = new Date(user.Birthday);
-        prettyBirthday = convert.toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" });
         favoriteMovies = allMovies.filter((m) => user.FavoriteMovies.includes(m.id));
     }, [`${user}`]);
 
