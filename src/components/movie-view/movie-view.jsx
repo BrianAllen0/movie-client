@@ -1,6 +1,5 @@
 import { Button, Col, Row } from "react-bootstrap";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
 
 export const MovieView = ({ user, movies }) => {
     const { movieId } = useParams(); // get id from url

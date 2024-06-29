@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Row, Button, Col } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import { MovieListing } from "../movie-listing/movie-listing";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";

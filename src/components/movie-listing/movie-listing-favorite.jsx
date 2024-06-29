@@ -1,6 +1,6 @@
 import propTypes from "prop-types";
 import { Button, Card, Col, Row } from "react-bootstrap";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const MovieListingFavorite = ({ movie, setUser, user }) => {
     const removeFavorite = (event) => {

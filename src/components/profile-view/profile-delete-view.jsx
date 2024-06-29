@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Col, Button, Row, Form } from "react-bootstrap";
-import { MovieListingFavorite } from "../movie-listing/movie-listing-favorite";
 
 export const ProfileDeleteView = ({ user }) => {
     const convert = new Date(user.Birthday);

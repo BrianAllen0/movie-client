@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Navbar, Nav, Row, Form, Col } from "react-bootstrap";
 
 export const NavigationBar = ({ setUser, setToken, allMovies, setSearchedMovies }) => {
@@ -35,7 +34,6 @@ export const NavigationBar = ({ setUser, setToken, allMovies, setSearchedMovies 
                                 setUser(null);
                                 setToken(null);
                                 localStorage.clear();
-                                console.log("Worked!");
                             }}
                             href="/"
                         >
