@@ -8,7 +8,7 @@ export const MovieListing = ({ movie }) => {
             <Card className="h-100 movie-card font-white">
                 <Card.Img variant="top" src={movie.image}></Card.Img>
                 <Card.Body>
-                    <Card.Title>{movie.title}</Card.Title>
+                    <Card.Title>{movie.title}</Card.Title> {/* IDs shouldn't pose an encoding problem but better to be safe */}
                     <Link to={`/movies/${encodeURIComponent(String(movie.id))}`}>
                         <Button>See More</Button>
                     </Link>

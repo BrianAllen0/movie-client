@@ -8,6 +8,7 @@ export const ProfileView = ({ user, setUser, allMovies }) => {
     let favoriteMovies = allMovies.filter((m) => user.FavoriteMovies.includes(m.id));
 
     useEffect(() => {
+        // refresh favorites as they change
         favoriteMovies = allMovies.filter((m) => user.FavoriteMovies.includes(m.id));
     }, [`${user}`]);
 

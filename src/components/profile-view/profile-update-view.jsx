@@ -8,7 +8,7 @@ export const ProfileUpdateView = ({ user }) => {
     const [newEmail, setNewEmail] = useState("");
 
     const updateInfo = (event) => {
-        let shouldUpdate = false;
+        let shouldUpdate = false; // they can press the update button any time, make sure they entered something first
         event.preventDefault();
         let newUserInfo = { ...user };
         if (newPassword) {
@@ -16,7 +16,7 @@ export const ProfileUpdateView = ({ user }) => {
             shouldUpdate = true;
         }
         if (newEmail) {
-            user.Email = newEmail;
+            user.Email = newEmail; // update the email on the client side for the sake of speed, password will only be checked again on next login so it can be skipped
             localStorage.setItem("user", JSON.stringify(user));
             newUserInfo.Email = newEmail;
             shouldUpdate = true;

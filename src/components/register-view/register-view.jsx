@@ -23,7 +23,7 @@ export const RegisterView = ({ onClickLogin }) => {
         }).then((response) => {
             if (response.ok) {
                 alert("Registered successfully!");
-                window.location.reload();
+                window.location.reload(); // go back to the login screen after registering
             } else {
                 alert("Registration failed!");
             }

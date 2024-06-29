@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
 export const MovieView = ({ user, movies }) => {
-    const { movieId } = useParams();
+    const { movieId } = useParams(); // get id from url
     const currentMovie = movies.find((m) => String(m.id) === String(movieId));
     const token = localStorage.getItem("token");
 
@@ -21,7 +21,7 @@ export const MovieView = ({ user, movies }) => {
         }).then((response) => {
             if (response.ok) {
                 user.FavoriteMovies.push(data.movieId.toString());
-                localStorage.setItem("user", JSON.stringify(user));
+                localStorage.setItem("user", JSON.stringify(user)); // update client data
                 alert("Movie added to favorites!");
             } else {
                 alert("Movie already in favorites!");

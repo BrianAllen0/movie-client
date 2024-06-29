@@ -9,7 +9,7 @@ export const ProfileDeleteView = ({ user }) => {
 
     const deleteAccount = (event) => {
         event.preventDefault();
-        let data = { Password: confirmedPassword };
+        let data = { Password: confirmedPassword }; // api will check this for us
 
         fetch("https://ba-movie-api.herokuapp.com/user/", {
             method: "DELETE",
@@ -18,10 +18,11 @@ export const ProfileDeleteView = ({ user }) => {
         }).then((response) => {
             if (response.ok) {
                 alert("Account deleted successfully!");
+                localStorage.clear(); // wipe the slate
+                navigate("/");
             } else {
                 alert("Something went wrong!");
             }
-            // navigate("/profile");
         });
     };
 

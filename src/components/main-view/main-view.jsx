@@ -16,7 +16,7 @@ export const MainView = () => {
     const [user, setUser] = useState(storedUser ? storedUser : null);
     const [registering, setRegistering] = useState(null);
     const [token, setToken] = useState(storedToken ? storedToken : null);
-    const [allMovies, setallMovies] = useState([]); //currentMovies
+    const [allMovies, setallMovies] = useState([]);
     const [searchedMovies, setSearchedMovies] = useState([]);
 
     useEffect(() => {
@@ -35,13 +35,14 @@ export const MainView = () => {
                     };
                 });
                 setallMovies(movieFetchData);
-                setSearchedMovies(movieFetchData);
+                setSearchedMovies(movieFetchData); // main page is technically *always* displaying search results, when no search has been done - set them to all movies
             });
     }, []);
 
     return (
         <BrowserRouter>
             <Row>
+                {/* navigation bar needs setuser and settoken because it contains the logout button*/}
                 <NavigationBar setUser={setUser} setToken={setToken} allMovies={allMovies} setSearchedMovies={setSearchedMovies} />
             </Row>
             <Row className="justify-content-md-center">
